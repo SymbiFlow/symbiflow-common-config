@@ -2,44 +2,35 @@
 
 ## Git Subtrees
 
-The crux of symbiflow-common-config is git subtrees. This is a tool built right into git, allowing you to nest one repository inside of another as a dependency.
-
+The crux of symbiflow-common-config is git subtrees. 
+This is a tool built right into git, allowing you to nest one repository inside of another as a dependency.
 Subtrees offer numerous advantages over other commonly used dependency tools like git submodules (easy setup and maintenance, no new commands that developers must learn in order to work with the dependencies, etc.)
-
-In our case, symbiflow-common-config is the repository that will be merged into all other SymbiFlow projects as a git subtree.
+In this case, symbiflow-common-config is the repository that is merged into all other SymbiFlow projects as a git subtree.
 
 To learn more about git subtrees and how they work, see [this page](https://www.atlassian.com/git/tutorials/git-subtree).
 
-
 ## How files will be organized in symbiflow-common-config
 
-While we already have a draft of many of the files we hope to include in symbiflow-common-config, we will not be implementing them all at once.
-
-To accommodate this, we will push groups of similar files to branches other than “main”, granting the option to merge in any of these feature sets to test as we see fit.
+While we already have a draft of many of the files we hope to include in symbiflow-common-config, they wil not be implemented all at once.
+Files are organized by feature under various branches that can be merged into `main` when ready for testing.
 
 <img src="assets/img/branches-example.png" width=300px> 
 
 ## Testing strategy
 
-As said earlier, we are using a wide approach, rather than deep. That is to say, we will implement one small feature organization-wide before moving on to other features.
+As said earlier, common config is using a wide approach, rather than deep.
+That is to say, features are implemented one at a time organization-wide before moving on to other features.
 
-The first feature we will test/implement is the default community health files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, etc.).
-
+The first feature to be tested/implemented is the default community health files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, etc.).
 Adding these files would not significantly alter/change the functionality of repositories, but they are still important and missing in many SymbiFlow projects.
 
-In the testing phase we will add the feature to a small subset of repositories, to ensure stability and have a chance to catch any unforeseen problems.
+Each feature is first added to a small subset of repositories, to ensure stability and have a chance to catch any unforeseen problems.
+The primary testing repository is [`pjxray-bram-patch`](https://github.com/SymbiFlow/prjxray-bram-patch), as it does not contain many of the features common-config will implement.
 
-The first repository we plan to add files to as a test is [`pjxray-bram-patch`](https://github.com/SymbiFlow/prjxray-bram-patch), as it does not contain many of the features common-config will implement.
+The feature set is implemented in other test respositores, followed by the rest of SymbiFlow projects.
+This process is then be repeated with all other feature sets.
 
-The other testing repositories are not yet decided, but will contain at least one that already includes common-config features, giving us the opportunity to ensure our implementation resolves these types of conflicts okay.
-
-This process will then be repeated with all other feature sets.
-
-Order of feature implementation: (organized from least to most complex)
-1. Community Health Files
-2. Issue and Pull Request Templates
-3. EditorConfig and Autoformatters
-4. Sphinx and Readthedocs setup
+For a list of all other planned features and implementation progress, see  [Issue 4](https://github.com/SymbiFlow/symbiflow-common-config/issues/4)
 
 ## Implementation
 
@@ -55,32 +46,28 @@ Our current setup moves files from `third_party/common-config` to their correct 
 
 ### Important Notes
 
-If one of these files already exists in the target repository, the script will make a copy of the original file before overwriting.
+If one of these files already exists in the target repository, the script makes a copy of the original file before overwriting.
+Most of the files added by common-config are compatible with all currently active SymbiFlow repositories, so overwriting would not break functionality anyways.
 
-Most of the files we add will be compatible with all currently active SymbiFlow repositories, so overwriting would not break functionality anyways.
-
-Files will be placed in a way that matches their directory structure in the original symbiflow-common-config repo.
-
+Files are placed in a way that matches their directory structure in the original symbiflow-common-config repo.
 Ex: If a `conf.py` file location is as follows `symbiflow-common-config/docs/conf.py` , it will be moved to `target-repo/docs/conf.py` .
+This allows new files to be added easily with no change to the scripts required.
 
-This would allow new files to be added easily with no change to the scripts required.
+This script could be used on a single repository for testing, or organization-wide when ready to roll out a new feature.
 
-This script could be used on a single repository for testing, or organization-wide when we are ready to roll out a new feature.
-
-A similar script would be used to update common-config files in repositories but using `git subtree pull` instead of `git subtree add`
+A similar script is used to update common-config files in repositories but using `git subtree pull` instead of `git subtree add`
 
 ## Further development and updates to symbiflow-common-config
 
 Any changes to common-config files that are not project-specific should be submitted via pull request to the original symbiflow-common-config repository.
 
-If these changes are reviewed and accepted, other repositories that have already merged symbiflow-common-config as a subtree will be able to pull in new changes by running a `update_common_config.sh` shell wrapper from inside the parent repository. 
+If these changes are reviewed and accepted, other repositories that have already merged symbiflow-common-config as a subtree will pull in new changes by running a `update_common_config.sh` shell wrapper from inside the parent repository. 
 
-It would be possible to update all SymbiFlow repositories at once with the new common-config features, but as some repositories might require extra effort and manual intervention to conform to the standards imposed by common-config, we believe it would be best to pull in updates to the common-config subtrees on a per-repository basis.
+It would be possible to update all SymbiFlow repositories at once with the new common-config features, but as some repositories might require extra effort and manual intervention to conform to the standards imposed by common-config, it would be best to pull in updates to the common-config subtrees on a per-repository basis.
 
 ## How would this impact developers
 
 There is no need for users of SymbiFlow repositories to run any additional commands to take advantage of common-config’s features.
-
 `git clone` will work as normal, and when a user runs the script to update common-config files, everyone else will be able to run `git pull` to get the new updates, as usual.
 
 ## Issues
