@@ -16,3 +16,5 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           COMMIT_BODY: "Signed-off-by: common-config-bot <common.config.bot@gmail.com>"
           FORK: common-config-bot
+          GIT_USERNAME: common-config-bot
+          GIT_EMAIL: common.config.bot@gmail.com
