@@ -1,6 +1,12 @@
 group:
-  - repos: |
-      SymbiFlow/prjxray-bram-patch
+  - repos:
+      - SymbiFlow/prjxray-bram-patch
+      - SymbiFlow/symbiflow-arch-defs
+      - SymbiFlow/prjxray
+      - SymbiFlow/symbiflow-examples
+      - SymbiFlow/fasm
+      - SymbiFlow/prjuray
+      - SymbiFlow/python-symbiflow-v2x
     files:
       - CODE_OF_CONDUCT.md
       - CONTRIBUTING.md
