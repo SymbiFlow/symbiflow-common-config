@@ -1,6 +1,6 @@
-# Contributing to SymbiFlow Projects
+# Contributing to F4PGA Projects
 
-There are a couple of guidelines when contributing to SymbiFlow Projects which are
+There are a couple of guidelines when contributing to F4PGA Projects which are
 listed here.
 
 ### Sending
@@ -11,8 +11,8 @@ All contributions should be sent as
 ### License
 
 All software (code, associated documentation, support files, etc) in the
-Symbiflow repositories are licensed under the very permissive
-[ISC Licence](https://opensource.org/licenses/ISC). A copy can be found in the [`LICENSE`](LICENSE) file.
+F4PGA repositories are licensed under the very permissive
+[Apache 2.0 Licence](https://opensource.org/licenses/Apache-2.0). A copy can be found in the [`LICENSE`](LICENSE) file.
 
 All new contributions must also be released under this license.
 

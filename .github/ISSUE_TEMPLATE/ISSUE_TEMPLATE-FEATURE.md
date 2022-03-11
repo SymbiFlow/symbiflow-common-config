@@ -1,6 +1,6 @@
 ---
 name: New Feature/Improvement
-about: A standard issue template to use in all Symbiflow repositories. Adapted from Open Source Templates by Tal Ater. 
+about: A standard issue template to use in all F4PGA repositories. Adapted from Open Source Templates by Tal Ater. 
 labels: enhancement
 ---
 <!--- Provide a general summary of the issue in the Title above -->

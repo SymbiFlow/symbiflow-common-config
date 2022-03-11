@@ -1,13 +1,10 @@
 group:
   - repos:
-      - SymbiFlow/fasm
-      - SymbiFlow/prjuray
-      - SymbiFlow/prjxray
-      - SymbiFlow/prjxray-bram-patch
-      - SymbiFlow/python-symbiflow-v2x
-      - SymbiFlow/symbiflow-arch-defs
-      - SymbiFlow/symbiflow-examples
-      - SymbiFlow/yosys-symbiflow-plugins
+      - chipsalliance/fpga-interchange-schema
+      - chipsalliance/f4pga-examples
+      - chipsalliance/fpga-tool-perf
+      - chipsalliance/fasm
+      - chipsalliance/f4pga-bitstream-viewer
     files:
       - CODE_OF_CONDUCT.md
       - CONTRIBUTING.md
