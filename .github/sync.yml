@@ -5,6 +5,8 @@ group:
       - chipsalliance/fpga-tool-perf
       - chipsalliance/fasm
       - chipsalliance/f4pga-bitstream-viewer
+      - chipsalliance/f4pga-v2x
     files:
+      - source: CONTRIBUTING.ref.md
+        dest: CONTRIBUTING.md
       - CODE_OF_CONDUCT.md
-      - CONTRIBUTING.md
