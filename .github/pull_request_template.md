@@ -1,4 +1,4 @@
-<!--- A standard pull request template to use for all Symbiflow repositories. Adapted from Open Source Templates(https://www.talater.com/open-source-templates/#/) by Tal Ater. -->
+<!--- A standard pull request template to use for all F4PGA repositories. Adapted from Open Source Templates(https://www.talater.com/open-source-templates/#/) by Tal Ater. -->
 
 <!--- Provide a general summary of your changes in the Title above -->
 
